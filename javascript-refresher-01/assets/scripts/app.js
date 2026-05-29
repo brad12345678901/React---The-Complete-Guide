@@ -1,7 +1,8 @@
-function greet(userName, message="Hello World"){
-    console.log(userName)
-    console.log(message)
+function createGreeting(userName, message="Hello World"){
+    return "Hi, i am " + userName + "." + message;
 }
 
-greet("User")
-greet("User", "Message Yes")
+console.log(createGreeting("Max"))
+const greeting = createGreeting("Ian")
+console.log(greeting)
+
