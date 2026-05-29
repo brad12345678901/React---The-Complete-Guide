@@ -1,3 +1,3 @@
-import {apiKey, abc} from "./util.js"
+import * as util from "./util.js"
 
-console.log(apiKey, abc);
+console.log(util.apiKey, util.abc, util.default);
