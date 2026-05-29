@@ -1,11 +1,6 @@
-console.log(10+5)
-console.log(10/5)
-console.log("hello" + "world")
-console.log(10 === 5)
-console.log(10 >= 5)
-console.log(10 != 5)
-console.log(10 < 5)
+function greet(userName, message){
+    console.log(userName)
+    console.log(message)
+}
 
-
-
-
+greet("User", "Hello")
