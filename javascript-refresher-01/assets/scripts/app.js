@@ -1,8 +1,3 @@
-function createGreeting(userName, message="Hello World"){
-    return "Hi, i am " + userName + "." + message;
-}
+import Function from "./util.js"
 
-console.log(createGreeting("Max"))
-const greeting = createGreeting("Ian")
-console.log(greeting)
-
+Function("TEST")
