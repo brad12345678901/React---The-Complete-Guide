@@ -1,1 +1,1 @@
-export let apiKey = "gjafhjasiudjiuoasjfdioaw"
+export default "TSETGSGASGAGW";
