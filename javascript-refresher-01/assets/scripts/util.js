@@ -1,3 +1,3 @@
-export default (userName) => {
+export default userName => {
     console.log(userName)
 }
