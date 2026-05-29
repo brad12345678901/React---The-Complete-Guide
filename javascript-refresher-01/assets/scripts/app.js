@@ -1,3 +1,3 @@
-import {apiKey, abc as abcalias} from "./util.js"
-
-console.log(abcalias);
+let userMessage = "Hello World!!"
+console.log(userMessage);
+console.log(userMessage);
