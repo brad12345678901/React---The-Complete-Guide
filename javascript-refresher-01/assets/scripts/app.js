@@ -1,3 +1,3 @@
-import * as util from "./util.js"
+import {apiKey, abc as abcalias} from "./util.js"
 
-console.log(util.apiKey, util.abc, util.default);
+console.log(abcalias);
