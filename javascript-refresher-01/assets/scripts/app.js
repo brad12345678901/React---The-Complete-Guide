@@ -2,13 +2,22 @@
 
 // Function("TEST")
 
-function storeOrder({id, name}) {
-    console.log(`Store Order ${id}, Order Name: ${name}`);
+const hobbies = ["Study", "Practice"];
+
+const newHobby = ["Working"];
+
+const editedHobbies = [...hobbies, ...newHobby];
+
+console.log(editedHobbies);
+
+let user = {
+    name: "Name",
+    age: 24
 }
 
-const order = {
-    id:1,
-    name: "Product Name"
+user = {
+    isActive: true,
+    ...user
 }
 
-storeOrder(order)
+console.log(user);
