@@ -1,9 +1,9 @@
-function init() {
-    function greet() {
-        console.log("Hi!");
-    }
+const hobbies = ["Eat", "Dance"];
 
-    greet();
-}
+hobbies.push("Drink");
 
-init()
+console.log(hobbies);
+
+const number = 1;
+
+number++;
