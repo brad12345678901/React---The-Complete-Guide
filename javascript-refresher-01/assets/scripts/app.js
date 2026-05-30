@@ -5,6 +5,9 @@
 const user = {
     name: "Max",
     age: 24,
+    greet() {
+        return "Hello World"
+    },
 }
 
-console.log(user.name)
+console.log(user.greet())
