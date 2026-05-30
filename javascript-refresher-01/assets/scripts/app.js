@@ -6,7 +6,7 @@ const user = {
     name: "Max",
     age: 24,
     greet() {
-        return "Hello World"
+        return `Hello ${this.name}`
     },
 }
 
