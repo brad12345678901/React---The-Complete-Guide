@@ -2,13 +2,13 @@
 
 // Function("TEST")
 
-const [firstName, lastName] = ["John", "Ibanez"];
+function storeOrder({id, name}) {
+    console.log(`Store Order ${id}, Order Name: ${name}`);
+}
 
-console.log(firstName, lastName);
+const order = {
+    id:1,
+    name: "Product Name"
+}
 
-const {name:userName, age} = {
-    name: "Name",
-    age: 34
-};
-
-console.log(userName, age);
+storeOrder(order)
