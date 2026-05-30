@@ -1,19 +1,19 @@
-// import Function from "./util.js"
-
-// Function("TEST")
-
-const password = prompt("Type Password");
-
-if (password === "Hello") {
-    console.log("Hello Works")
-} else if (password === "hello works") {
-    console.log("hello works");
-} else {
-    console.log("Access not Granted!");
+function handleTimeout () {
+    console.log("Timed Out!");
 }
 
-const hobbies = ["Create", "Study"];
-
-for (const hobby of hobbies) {
-    console.log(hobby);
+const handleTimeout2 =  () => {
+    console.log("Timed Out...again !");
 }
+
+setTimeout(handleTimeout, 2000);
+setTimeout(handleTimeout2, 3000);
+setTimeout(() => {
+    console.log("Timeout once more...!");
+}, 4000);
+
+function greeter(greet) {
+    greet();
+}
+
+greeter(() => console.log("Hi!"))
