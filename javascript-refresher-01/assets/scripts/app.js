@@ -13,5 +13,5 @@ const index = hobbies.findIndex(item => item === "Working")
 
 console.log(index);
 
-const editedHobbies = hobbies.map((item) => item + "!");
+const editedHobbies = hobbies.map((item) => ({text: item}));
 console.log(editedHobbies);
