@@ -2,16 +2,6 @@
 
 // Function("TEST")
 
-const hobbies = ["Sports", "Cooking", "Reading"]
+const [firstName, lastName] = ["John", "Ibanez"];
 
-console.log(hobbies[0]);
-
-hobbies.push("Working");
-console.log(hobbies);
-
-const index = hobbies.findIndex(item => item === "Working")
-
-console.log(index);
-
-const editedHobbies = hobbies.map((item) => ({text: item}));
-console.log(editedHobbies);
+console.log(firstName, lastName);
