@@ -2,12 +2,16 @@
 
 // Function("TEST")
 
-const user = {
-    name: "Max",
-    age: 24,
-    greet() {
-        return `Hello ${this.name}`
-    },
+class User {
+    constructor(name, age){
+        this.name = name
+        this.age = age
+    }
+    greet () {
+        console.log("Hi!");
+    }
 }
 
-console.log(user.greet())
+const user = new User("Manny", 24)
+
+console.log(user);
