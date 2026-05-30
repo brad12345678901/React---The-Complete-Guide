@@ -1,9 +1,14 @@
-const hobbies = ["Eat", "Dance"];
+const user = {
+    name: "TEST",
+    yes: "YES"
+};
 
-hobbies.push("Drink");
+//CANT DO
+// user = {
+//     ...user,
+//     NO: "NO"
+// }
 
-console.log(hobbies);
-
-const number = 1;
-
-number++;
+//BUT YOU CAN
+user.NO = "NO";
+console.log(user);
