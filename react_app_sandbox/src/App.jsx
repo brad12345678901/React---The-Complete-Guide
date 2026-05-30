@@ -6,7 +6,7 @@ import CoreConcepts from "./components/CoreConcept.jsx";
 function App() {
   return (
     <div>
-      <Header />
+      <header><h1>Hello World</h1></header>
       <Header />
 
       <main>
