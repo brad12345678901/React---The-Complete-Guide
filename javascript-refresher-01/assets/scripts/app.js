@@ -15,3 +15,5 @@ class User {
 const user = new User("Manny", 24)
 
 console.log(user);
+
+user.greet()
