@@ -2,18 +2,6 @@
 
 // Function("TEST")
 
-class User {
-    constructor(name, age){
-        this.name = name
-        this.age = age
-    }
-    greet () {
-        console.log("Hi!");
-    }
-}
+const hobbies = ["Sports", "Cooking", "Reading"]
 
-const user = new User("Manny", 24)
-
-console.log(user);
-
-user.greet()
+console.log(hobbies[0]);
