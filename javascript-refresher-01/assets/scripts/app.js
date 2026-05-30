@@ -2,22 +2,18 @@
 
 // Function("TEST")
 
-const hobbies = ["Study", "Practice"];
+const password = prompt("Type Password");
 
-const newHobby = ["Working"];
-
-const editedHobbies = [...hobbies, ...newHobby];
-
-console.log(editedHobbies);
-
-let user = {
-    name: "Name",
-    age: 24
+if (password === "Hello") {
+    console.log("Hello Works")
+} else if (password === "hello works") {
+    console.log("hello works");
+} else {
+    console.log("Access not Granted!");
 }
 
-user = {
-    isActive: true,
-    ...user
-}
+const hobbies = ["Create", "Study"];
 
-console.log(user);
+for (const hobby of hobbies) {
+    console.log(hobby);
+}
