@@ -11,6 +11,7 @@ export default function Player({name, symbol}) {
 
     if (isEditing) {
         playerName = <input type="text"></input>;
+
     }
   return (
     <li>
@@ -18,7 +19,7 @@ export default function Player({name, symbol}) {
         {playerName}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleEdit}>Edit</button>
+      <button onClick={handleEdit}>{isEditing ? "Save" : "Edit"}</button>
     </li>
   );
 }
