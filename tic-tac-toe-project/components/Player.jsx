@@ -4,13 +4,13 @@ export default function Player({name, symbol}) {
     const [isEditing, setIsEditing ] = useState(false);
 
     function handleEdit () {
-        setIsEditing(!isEditing);
+        setIsEditing(prev => !prev);
     }
 
     let playerName = <span className="player-name">{name}</span>;
 
     if (isEditing) {
-        playerName = <input type="text"></input>;
+        playerName = <input type="text" required value={name}></input>;
 
     }
   return (
