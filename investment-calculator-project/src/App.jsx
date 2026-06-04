@@ -17,18 +17,20 @@ function App() {
     ...userInvestmentInputData,
   });
 
+  function handleInputForm(e) {
+    const { name, value } = e.target;
 
-  const sampleData = calculateInvestmentResults({
-    initialInvestment: 15000,
-    annualInvestment: 9000,
-    expectedReturn: 5.5,
-    duration:2
-  });
+    setInvestmentData((prev) => ({
+      ...prev,
+      [name]: Number(value),
+    }));
+  }
+  const results = calculateInvestmentResults(investmentData);
   return (
     <>
       <Header />
-      <UserInputForm editInvestment={setInvestmentData} />
-      <Table headers={DATA_HEADER} data={DATA_SAMPLE} />
+      <UserInputForm handleForm={handleInputForm} formData={investmentData} />
+      <Table headers={DATA_HEADER} data={results} />
     </>
   );
 }
