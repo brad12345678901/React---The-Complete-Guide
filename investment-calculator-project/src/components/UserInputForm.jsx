@@ -27,6 +27,8 @@ export default function UserInputForm({ handleForm, formData }) {
           <input
             type="number"
             name="expectedReturn"
+            step={0.01}
+            min={0}
             value={formData.expectedReturn}
             onChange={handleForm}
           ></input>

@@ -22,7 +22,7 @@ function App() {
 
     setInvestmentData((prev) => ({
       ...prev,
-      [name]: Number(value),
+      [name]: name === "expectedReturn" ? parseFloat(value) : parseInt(value),
     }));
   }
   const results = calculateInvestmentResults(investmentData);
