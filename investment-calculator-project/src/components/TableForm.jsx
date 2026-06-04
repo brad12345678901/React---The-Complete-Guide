@@ -17,9 +17,16 @@ function TableHeader({ children, headers }) {
 function TableRow({ headers, data, rowIndex }) {
   let tableRow;
   if (data) {
-    tableRow = Object.keys(data).map((d, i) => (
-      <TableCell key={`${rowIndex}-${i}`} data={data[d]} header={headers[i]} />
-    ));
+    tableRow = Object.keys(data).map((d, i) => {
+      if (i < headers.length)
+        return (
+          <TableCell
+            key={`${rowIndex}-${i}`}
+            data={data[d]}
+            header={headers[i]}
+          />
+        );
+    });
   }
   return <tr key={`tableRow-${rowIndex}`}>{tableRow}</tr>;
 }
@@ -27,7 +34,7 @@ function TableRow({ headers, data, rowIndex }) {
 function TableCell({ data, header }) {
   let cellItem = data;
 
-  if (header.format === "currency") {
+  if (header && header.format === "currency") {
     cellItem = formatter.format(data);
   }
 
@@ -35,7 +42,6 @@ function TableCell({ data, header }) {
 }
 
 export default function Table({ children, headers, data }) {
-  const headersLength = headers.length;
   return (
     <table id="result">
       <TableHeader headers={headers} />
