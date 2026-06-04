@@ -19,10 +19,15 @@ function App() {
 
   function handleInputForm(e) {
     const { name, value } = e.target;
+    let inputValue = value;
+    if (value.length) {
+      inputValue =
+        name === "expectedReturn" ? parseFloat(value) : parseInt(value);
+    }
 
     setInvestmentData((prev) => ({
       ...prev,
-      [name]: name === "expectedReturn" ? parseFloat(value) : parseInt(value),
+      [name]: inputValue,
     }));
   }
   const results = calculateInvestmentResults(investmentData);
