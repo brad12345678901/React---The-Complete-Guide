@@ -35,7 +35,13 @@ function App() {
     <>
       <Header />
       <UserInputForm handleForm={handleInputForm} formData={investmentData} />
-      <Table headers={DATA_HEADER} data={results} />
+      {investmentData.duration < 0 ? (
+        <p className="center">
+          Please enter a duration that is greater than zero
+        </p>
+      ) : (
+        <Table headers={DATA_HEADER} data={results} />
+      )}
     </>
   );
 }
