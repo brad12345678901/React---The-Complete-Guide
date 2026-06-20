@@ -1,9 +1,11 @@
 
 export default function Input({label, invalid, ...props}) {
-  let labelClass = "block mb-2 text-xs font-bold tracking-wide uppercase text-stone-300"
+  let labelClass = "block mb-2 text-xs font-bold tracking-wide uppercase"
 
   if (invalid) {
-    labelClass = "block mb-2 text-xs font-bold tracking-wide uppercase text-red-400"
+    labelClass += " text-red-400"
+  } else {
+    labelClass += " text-stone-300"
   }
 
     return <p>
