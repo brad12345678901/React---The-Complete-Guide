@@ -13,7 +13,12 @@ export default function AddProject({ onSubmit, setActivity, ...props }) {
   return (
     <form className="w-full grid gap-2" onSubmit={handleSubmit}>
       <span className="flex gap-5 justify-end">
-        <Button plain className="hover:text-slate-500">
+        <Button
+          type="button"
+          plain
+          onClick={() => setActivity("home")}
+          className="hover:text-slate-500"
+        >
           Cancel
         </Button>
         <Button type="submit">Save</Button>
