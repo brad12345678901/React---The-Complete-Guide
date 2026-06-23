@@ -1,12 +1,18 @@
 import Button from "../Button";
 import Input from "../forms/Input";
 
-export default function AddProject({ onSubmit, setActivity, ...props }) {
+export default function AddProject({
+  onSubmit,
+  setActivity,
+  setListofProject,
+  ...props
+}) {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
+    formData.append("tasks", "");
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    setListofProject(prev => [...prev, data]);
     setActivity("home");
   }
 
