@@ -30,9 +30,17 @@ function fetchStyles(props) {
   return buttonStyles.normal;
 }
 
-export default function Button({ children, color, className, ...props }) {
-  const buttonStyle = fetchStyles({ ...props });
-  const buttonColor = fetchColor(color, { ...props });
+export default function Button({
+  children,
+  color,
+  className,
+  plain,
+  normal,
+  outline,
+  ...props
+}) {
+  const buttonStyle = fetchStyles({ plain, normal, outline });
+  const buttonColor = fetchColor(color, { plain, normal, outline });
 
   //DEBUG PURPOSES
   <p className="text-blue"></p>;
