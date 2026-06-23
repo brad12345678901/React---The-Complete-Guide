@@ -1,6 +1,6 @@
 const buttonStyles = {
-  normal: "rounded-md px-2 py-2 min-w-10 font-semibold select-none ",
-  plain: "",
+  normal: "rounded-md px-2 py-2 min-w-20 font-semibold select-none ",
+  plain: "font-semibold",
   outline: "border-2 border-black py-2 px-2 ",
 };
 
@@ -10,16 +10,29 @@ const buttonColors = {
   green: "bg-green-400 text-green-900 hover:bg-green-500",
 };
 
-function fetchColor(color) {
+function fetchColor(color, props) {
+  if (props.plain) {
+    return "";
+  }
   if (color) {
     return buttonColors[color];
   }
   return buttonColors.gray;
 }
 
+function fetchStyles(props) {
+  if (props.plain) {
+    return buttonStyles.plain;
+  }
+  if (props.outline) {
+    return buttonStyles.outline;
+  }
+  return buttonStyles.normal;
+}
+
 export default function Button({ children, color, className, ...props }) {
-  const buttonStyle = buttonStyles.normal;
-  const buttonColor = fetchColor(color);
+  const buttonStyle = fetchStyles({ ...props });
+  const buttonColor = fetchColor(color, { ...props });
 
   //DEBUG PURPOSES
   <p className="text-blue"></p>;
