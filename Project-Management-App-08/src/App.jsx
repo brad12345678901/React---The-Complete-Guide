@@ -1,11 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { useEffect, useState, useRef } from "react";
 import Button from "./components/Button";
 import Sidebar from "./components/Sidebar";
 import Home from "./components/Fragments/Home";
 import AddProject from "./components/Fragments/AddProject";
-import { dateformat } from "./utils/formatter";
-import ViewProject from "./components/Fragments/ViewProject";
 import { dateformat } from "./utils/formatter";
 import ViewProject from "./components/Fragments/ViewProject";
 
