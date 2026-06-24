@@ -39,10 +39,10 @@ function App() {
 
   return (
     <>
-      <h1 className="my-8 text-center text-5xl font-bold">
+      <h1 className="my-8 text-center sm:text-5xl font-bold text-xl">
         Project Management Application
       </h1>
-      <div className="flex min-h-[50vh]">
+      <div className="flex h-[50rem]">
         <Sidebar
           setActivity={setActiveActivity}
           projectList={listOfProjects}
