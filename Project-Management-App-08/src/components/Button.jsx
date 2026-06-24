@@ -1,7 +1,7 @@
 const buttonStyles = {
-  normal: "rounded-md px-2 py-2 min-w-20 font-semibold select-none ",
-  plain: "font-semibold",
-  outline: "border-2 border-black py-2 px-2 ",
+  normal: "rounded-md px-2 py-2 min-w-20 font-semibold select-none max-h-10 ",
+  plain: "font-semibold max-h-10 ",
+  outline: "border-2 border-black py-2 px-2 max-h-10 ",
 };
 
 const buttonColors = {
