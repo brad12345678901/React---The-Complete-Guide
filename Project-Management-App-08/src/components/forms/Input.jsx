@@ -1,11 +1,18 @@
-export default function Input({ type, ...props }) {
+export default function Input({ type, className, ...props }) {
   if (type === "textarea") {
-    return <textarea 
-    {...props}
-    className = "bg-zinc-200 p-2 outline-none focus:border-b-2 focus:border-b-slate-400 rounded-md"
-    ></textarea>;
+    return (
+      <textarea
+        {...props}
+        className={`bg-zinc-200 p-2 outline-none focus:border-b-2 focus:border-b-slate-400 rounded-md ${className}`}
+      ></textarea>
+    );
   }
 
-  return <input type={type} {...props}
-  className = "bg-zinc-200 p-2 outline-none focus:border-b-2 focus:border-b-slate-400 rounded-md max-h-10"></input>;
+  return (
+    <input
+      type={type}
+      {...props}
+      className={`bg-zinc-200 p-2 outline-none focus:border-b-2 focus:border-b-slate-400 rounded-md max-h-10 ${className}`}
+    ></input>
+  );
 }
