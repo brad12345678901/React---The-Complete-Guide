@@ -8,11 +8,7 @@ export default function AddProject({
   setListofProject,
   ...props
 }) {
-  const [errors, setErrors] = useState({
-    projectName: undefined,
-    projectDescription: undefined,
-    projectDate: undefined,
-  });
+  const [errors, setErrors] = useState({});
 
   function handleSubmit(e) {
     let error = false;
@@ -38,6 +34,7 @@ export default function AddProject({
 
     if (!error) {
       setListofProject((prev) => [...prev, data]);
+      setErrors({});
       setActivity("home");
     }
   }
@@ -59,15 +56,15 @@ export default function AddProject({
         type="text"
         name="projectName"
         placeholder="Enter Project Name"
-        errors={errors.projectName}
+        errors={errors?.projectName}
       />
       <Input
         type="textarea"
         name="projectDescription"
         placeholder="Enter Project Description"
-        errors={errors.projectDescription}
+        errors={errors?.projectDescription}
       />
-      <Input type="date" name="projectDate" errors={errors.projectDate} />
+      <Input type="date" name="projectDate" errors={errors?.projectDate} />
     </form>
   );
 }
