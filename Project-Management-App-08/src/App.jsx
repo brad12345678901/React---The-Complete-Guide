@@ -1,19 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Button from "./components/Button";
 import Sidebar from "./components/Sidebar";
 import Home from "./components/Fragments/Home";
 import AddProject from "./components/Fragments/AddProject";
+import { dateformat } from "./utils/formatter";
+import ViewProject from "./components/Fragments/ViewProject";
 
 function App() {
   const [activeActivity, setActiveActivity] = useState("home");
   const [listOfProjects, setListOfProject] = useState([
     {
-      projectName: "TEST",
-      projectDescription: "TEST DESCRIPTION",
-      projectDate: Date(),
-      tasks: ["Do Shit", "Do Nothing"],
+      projectName: "Test Project",
+      projectDescription: "Let's start with the basics of the javascript\n\n TEST",
+      projectDate: '2026-03-25',
+      tasks: ["Do Something", "Do Nothing"],
+    },
+    {
+      projectName: "Test Project 2",
+      projectDescription: "Let's start with the basics of the C#\n\n TEST",
+      projectDate: '2026-03-24',
+      tasks: ["Do Something", "Do Nothing"],
     },
   ]);
+  const selectedRef = useRef();
+  let selectedId = 0;
+
+  if (selectedRef.current) {
+    selectedId = selectedRef.current.id;
+  }
 
   return (
     <>
@@ -21,10 +35,11 @@ function App() {
         Project Management Application
       </h1>
       <div className="flex min-h-[50vh]">
-        <Sidebar setActivity={setActiveActivity}></Sidebar>
-        <div className="flex flex-row flex-1 p-5 justify-center">
+        <Sidebar setActivity={setActiveActivity} projectList={listOfProjects} selectedProjectRef={selectedRef}></Sidebar>
+        <div className="flex flex-row grow p-5 justify-center">
           {activeActivity == "home" && <Home setActivity={setActiveActivity}/>}
-          {activeActivity == "addproject" && <AddProject/>}
+          {activeActivity.includes("viewproject") && <ViewProject index={selectedId} selectedProject={listOfProjects[selectedId]} setListOfProject={setListOfProject}/>}
+          {activeActivity == "addproject" && <AddProject setActivity={setActiveActivity} setListofProject={setListOfProject}/>}
         </div>
       </div>
     </>
