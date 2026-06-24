@@ -1,11 +1,23 @@
 import { dateformat } from "../../utils/formatter";
+import Button from "../Button";
 import TasksManager from "./TasksManager";
 
-export default function ViewProject({ index, selectedProject, setListOfProject }) {
+export default function ViewProject({
+  index,
+  selectedProject,
+  setListOfProject,
+  deleteProject
+}) {
   return (
     <span className="flex flex-col grow">
       <header className="p-3">
-        <h1 className="text-2xl font-semibold">{selectedProject.projectName}</h1>
+        <span className="flex flex-row justify-between">
+          <h1 className="text-2xl font-semibold">
+            {selectedProject.projectName}
+          </h1>{" "}
+          <Button id={index} onClick={deleteProject} plain className="text-slate-500">Delete</Button>
+        </span>
+
         <p className="text-sm text-slate-500">
           {dateformat.format(
             new Date(
@@ -23,7 +35,11 @@ export default function ViewProject({ index, selectedProject, setListOfProject }
       </header>
       <hr />
       <div className="p-3">
-        <TasksManager projectIndex={index} tasks={selectedProject.tasks} setListOfProject={setListOfProject}/>
+        <TasksManager
+          projectIndex={index}
+          tasks={selectedProject.tasks}
+          setListOfProject={setListOfProject}
+        />
       </div>
     </span>
   );

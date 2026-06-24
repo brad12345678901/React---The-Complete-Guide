@@ -11,14 +11,15 @@ function App() {
   const [listOfProjects, setListOfProject] = useState([
     {
       projectName: "Test Project",
-      projectDescription: "Let's start with the basics of the javascript\n\n TEST",
-      projectDate: '2026-03-25',
+      projectDescription:
+        "Let's start with the basics of the javascript\n\n TEST",
+      projectDate: "2026-03-25",
       tasks: ["Do Something", "Do Nothing"],
     },
     {
       projectName: "Test Project 2",
       projectDescription: "Let's start with the basics of the C#\n\n TEST",
-      projectDate: '2026-03-24',
+      projectDate: "2026-03-24",
       tasks: ["Do Something", "Do Nothing"],
     },
   ]);
@@ -29,17 +30,40 @@ function App() {
     selectedId = selectedRef.current.id;
   }
 
+  function handleDeleteProject(e) {
+    setActiveActivity("home");
+    setListOfProject((list) =>
+      list.filter((project, index) => index != e.target.id),
+    );
+  }
+
   return (
     <>
       <h1 className="my-8 text-center text-5xl font-bold">
         Project Management Application
       </h1>
       <div className="flex min-h-[50vh]">
-        <Sidebar setActivity={setActiveActivity} projectList={listOfProjects} selectedProjectRef={selectedRef}></Sidebar>
+        <Sidebar
+          setActivity={setActiveActivity}
+          projectList={listOfProjects}
+          selectedProjectRef={selectedRef}
+        ></Sidebar>
         <div className="flex flex-row grow p-5 justify-center">
-          {activeActivity == "home" && <Home setActivity={setActiveActivity}/>}
-          {activeActivity.includes("viewproject") && <ViewProject index={selectedId} selectedProject={listOfProjects[selectedId]} setListOfProject={setListOfProject}/>}
-          {activeActivity == "addproject" && <AddProject setActivity={setActiveActivity} setListofProject={setListOfProject}/>}
+          {activeActivity == "home" && <Home setActivity={setActiveActivity} />}
+          {activeActivity.includes("viewproject") && (
+            <ViewProject
+              index={selectedId}
+              selectedProject={listOfProjects[selectedId]}
+              setListOfProject={setListOfProject}
+              deleteProject={handleDeleteProject}
+            />
+          )}
+          {activeActivity == "addproject" && (
+            <AddProject
+              setActivity={setActiveActivity}
+              setListofProject={setListOfProject}
+            />
+          )}
         </div>
       </div>
     </>
