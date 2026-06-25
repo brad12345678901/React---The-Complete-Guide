@@ -6,7 +6,8 @@ export default function ViewProject({
   index,
   selectedProject,
   setListOfProject,
-  deleteProject
+  deleteProject,
+  errorModal
 }) {
   return (
     <span className="flex flex-col grow">
@@ -39,6 +40,7 @@ export default function ViewProject({
           projectIndex={index}
           tasks={selectedProject.tasks}
           setListOfProject={setListOfProject}
+          errorModal={errorModal}
         />
       </div>
     </span>

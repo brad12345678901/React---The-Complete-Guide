@@ -6,6 +6,7 @@ export default function TasksManager({
   projectIndex,
   tasks,
   setListOfProject,
+  errorModal,
   ...props
 }) {
   const [error, setError] = useState(undefined);
@@ -22,9 +23,10 @@ export default function TasksManager({
       if (!i) {
         error = true;
         setError("Task cannot be empty");
+        errorModal.current.open();
       } else tempTasks.push(i);
     }
-    if (error)
+    if (!error) {
       setListOfProject((prevList) =>
         prevList.map((project, index) => {
           if (index == projectIndex) {
@@ -36,6 +38,7 @@ export default function TasksManager({
           return project;
         }),
       );
+    }
   }
 
   function handleClear(e) {

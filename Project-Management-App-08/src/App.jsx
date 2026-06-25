@@ -5,6 +5,7 @@ import Home from "./components/Fragments/Home";
 import AddProject from "./components/Fragments/AddProject";
 import { dateformat } from "./utils/formatter";
 import ViewProject from "./components/Fragments/ViewProject";
+import Modal from "./components/modals/Modal";
 
 function App() {
   const [activeActivity, setActiveActivity] = useState("home");
@@ -24,6 +25,7 @@ function App() {
     },
   ]);
   const selectedRef = useRef();
+  const modalRef = useRef();
   let selectedId = 0;
 
   if (selectedRef.current) {
@@ -39,6 +41,11 @@ function App() {
 
   return (
     <>
+    <Modal ref={modalRef}>
+      <h2 className="text-3xl font-semibold">Oops!</h2>
+      <p>An error has occured, one of the inputs is incorrect</p>
+      <p>Make sure to provide the valid input for every input field.</p>
+    </Modal>
       <h1 className="my-8 text-center sm:text-5xl font-bold text-xl">
         Project Management Application
       </h1>
@@ -56,6 +63,7 @@ function App() {
               selectedProject={listOfProjects[selectedId]}
               setListOfProject={setListOfProject}
               deleteProject={handleDeleteProject}
+              errorModal={modalRef}
             />
           )}
           {activeActivity == "addproject" && (
