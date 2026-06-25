@@ -12,6 +12,7 @@ export default function AddProject({
 
   function handleSubmit(e) {
     let error = false;
+    setErrors({});
     e.preventDefault();
     const formData = new FormData(e.target);
     formData.append("tasks", "");
