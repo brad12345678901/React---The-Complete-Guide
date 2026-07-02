@@ -4,7 +4,6 @@ export default function QuestionTimer({ timeout, onTimeout }) {
   const [remainingTime, setRemainingTime] = useState(timeout);
 
   useEffect(() => {
-    console.log("TIMEOUT");
     const timeOut = setTimeout(onTimeout, timeout);
     return () => {
       clearTimeout(timeOut);
@@ -12,7 +11,6 @@ export default function QuestionTimer({ timeout, onTimeout }) {
   }, [timeout, onTimeout]);
 
   useEffect(() => {
-    console.log("INTERVAL");
     const interval = setInterval(() => {
       setRemainingTime((prevTime) => prevTime - 100);
     }, 100);
