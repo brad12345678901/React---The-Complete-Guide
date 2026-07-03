@@ -1,6 +1,6 @@
 # React - Complete Guide by Maximilian Schwarzmuller
 
-Repository that follows my journeym learning the React framework.
+Repository that follows my journey learning the React framework.
 
 Exploring it's internal workings and developing applications using React
 
