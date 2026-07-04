@@ -135,7 +135,32 @@ Exploring it's internal workings and developing applications using React
       ✅
     </td>
     <td>
-      Allows you to resolve "side effects", mostly functions that don't have influeuce on the rendering or by re-renders
+      Allows you to resolve "side effects", mostly functions that don't have influeuce on the rendering. Typically Async Functions
     </td>
   </tr>
 </table>
+
+
+# Small Practice Project Applications made throughout the course:
+
+## Investment Calculator Application
+
+<img width="950" height="535" alt="image" src="https://github.com/user-attachments/assets/69530a51-0eae-427a-ab43-a733b2c06e01" />
+
+<img width="950" height="535" alt="image" src="https://github.com/user-attachments/assets/29e5ccda-c67a-4ce9-abf0-765848e2ccd2" />
+
+
+## Project Management App
+
+<img width="950" height="535" alt="image" src="https://github.com/user-attachments/assets/52017fe0-a25a-435a-bca9-57f40a68623a" />
+
+<img width="950" height="535" alt="image" src="https://github.com/user-attachments/assets/82a304e7-a933-49b1-8a78-c8f5cc14e636" />
+
+## React Quiz App
+
+<img width="950" height="535" alt="image" src="https://github.com/user-attachments/assets/eb553c7b-8c38-4f02-a03f-ef434bb480a6" />
+
+<img width="949" height="535" alt="image" src="https://github.com/user-attachments/assets/7d5b973b-f18d-4a60-8a4d-5e4cfe53aed9" />
+
+
+
