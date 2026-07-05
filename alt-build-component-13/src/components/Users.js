@@ -3,12 +3,6 @@ import User from "./User";
 
 import classes from "./Users.module.css";
 
-const DUMMY_USERS = [
-  { id: "u1", name: "Max" },
-  { id: "u2", name: "Manuel" },
-  { id: "u3", name: "Julie" },
-];
-
 class Users extends Component {
   // FUNCTION THAT EXECUTES UPON INSTANTIATE
   // STATE MUST BE AN OBJECT
@@ -32,14 +26,11 @@ class Users extends Component {
   render() {
     const usersList = (
       <ul>
-        {DUMMY_USERS.map((user) => (
+        {this.props.users.map((user) => (
           <User key={user.id} name={user.name} />
         ))}
       </ul>
     );
-
-    console.log(usersList);
-
     return (
       <div className={classes.users}>
         <button onClick={this.toggleUsersHandler.bind(this)}>
