@@ -138,6 +138,17 @@ Exploring it's internal workings and developing applications using React
       Allows you to resolve "side effects", mostly functions that don't have influeuce on the rendering. Typically Async Functions
     </td>
   </tr>
+  <tr>
+    <td>
+      React Optimization
+    </td>
+     <td>
+      ✅
+    </td>
+    <td>
+      Explore approaches to different optimizations in React (memo, useMemo, useCallback, key prop)
+    </td>
+  </tr>
 </table>
 
 
