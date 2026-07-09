@@ -149,6 +149,17 @@ Exploring it's internal workings and developing applications using React
       Explore approaches to different optimizations in React (memo, useMemo, useCallback, key prop)
     </td>
   </tr>
+  <tr>
+    <td>
+      Class-based Components
+    </td>
+     <td>
+      ✅
+    </td>
+    <td>
+      Demonstrates how components are made prior to React 16.8
+    </td>
+  </tr>
 </table>
 
 
