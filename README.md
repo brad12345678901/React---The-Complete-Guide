@@ -160,6 +160,17 @@ Exploring it's internal workings and developing applications using React
       Demonstrates how components are made prior to React 16.8
     </td>
   </tr>
+  <tr>
+    <td>
+      Custom Hooks
+    </td>
+     <td>
+      ✅
+    </td>
+    <td>
+      Learned the capability to create your own hook, combine multiple hooks within hooks
+    </td>
+  </tr>
 </table>
 
 
