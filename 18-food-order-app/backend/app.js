@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 
 app.get("/meals", async (req, res) => {
   const meals = await fs.readFile("./data/available-meals.json", "utf8");
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   res.json(JSON.parse(meals));
 });
 
