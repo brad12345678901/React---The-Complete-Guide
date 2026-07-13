@@ -1,22 +1,13 @@
 import { useEffect, useState } from "react";
+import { useFetch } from "./hook/useFetch";
+import { getMeals } from "./utils/api";
 
 function App() {
-  const [meals, setMeals] = useState("");
-
-  useEffect(() => {
-    async function getMeals() {
-      fetch("http://localhost:3000/meals")
-        .then((res) => res.json())
-        .then((data) => setMeals(data));
-    }
-
-    getMeals();
-  }, []);
-
-  console.log(meals);
+  const { data: meals, setData: setMeals, isFetching } = useFetch(getMeals, []);
   return (
     <>
       <h1 id="main-header">TEST</h1>
+      {isFetching && <p>Loading...</p>}
     </>
   );
 }
