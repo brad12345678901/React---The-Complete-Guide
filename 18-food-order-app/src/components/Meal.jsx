@@ -5,7 +5,7 @@ export default function Meal({ item }) {
       <h3>{item.name}</h3>
       <div className="meal-item-description">{item.description}</div>
       <div className="meal-item-actions">
-        <button className="button">TEST</button>
+        <button className="button">Add to Cart</button>
       </div>
     </div>
   );
