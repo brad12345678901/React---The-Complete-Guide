@@ -1,14 +1,15 @@
-export default function Meal({ item }) {
+import { useFetch } from "../hook/useFetch";
+import { getMeals } from "../utils/api";
+import MealItem from "./MealItem";
+
+export default function Meal() {
+  const { data: meals, setData: setMeals, isFetching } = useFetch(getMeals, []);
+
   return (
-    <div className="meal-item">
-      <article>
-        <img src={`http://localhost:3000/${item.image}`} />
-        <h3>{item.name}</h3>
-        <div className="meal-item-description">{item.description}</div>
-        <div className="meal-item-actions">
-          <button className="button">Add to Cart</button>
-        </div>
-      </article>
+    <div id="meals">
+      {isFetching && <p>Loading...</p>}
+      {meals.length !== 0 &&
+        meals.map((item) => <MealItem key={item.id} item={item} />)}
     </div>
   );
 }
