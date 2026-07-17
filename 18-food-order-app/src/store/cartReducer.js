@@ -5,9 +5,35 @@ export const initialState = {
   mealItemsCount: 0,
 };
 
-const cartContext = createContext();
-
 export function cartReducer(state, action) {
-  console.log(action);
+  switch (action.type) {
+    case "ADD_MEAL_ITEM": {
+      const existingMeal = state.mealItems.findIndex(
+        (item) => item.id === action.payload.id,
+      );
+
+      console.log(state.mealItems)
+
+      if (existingMeal === -1) {
+        return {
+          ...state,
+          mealItems: [...state.mealItems, { ...action.payload, quantity: 1 }],
+        };
+      } else {
+        return {
+          ...state,
+          mealItems: state.mealItems.map((item, index) =>
+            index === existingMeal
+              ? { ...item, quantity: item.quantity + 1 }
+              : item,
+          ),
+        };
+      }
+    }
+    case "REMOVE_MEAL_ITEM": {
+    }
+    default:
+      return { ...state };
+  }
   return state;
 }
