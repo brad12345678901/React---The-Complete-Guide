@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export const initialState = {
   mealItems: [],
-  mealItemsCount: 0,
+  modalCartProgression: 0,
 };
 
 export function cartReducer(state, action) {
@@ -52,6 +52,18 @@ export function cartReducer(state, action) {
         }
       }
     }
+
+    case "PROGRESS_MODAL": {
+      return {
+        ...state,
+        modalCartProgression: state.modalCartProgression + 1,
+      };
+    }
+
+    case "RESET_MODAL_PROGRESS": {
+      return { ...state, modalCartProgression: 0 };
+    }
+
     default:
       return { ...state };
   }

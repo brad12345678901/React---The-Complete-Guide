@@ -4,13 +4,17 @@ import CartItem from "./CartItem";
 import Button from "./Button";
 import { usdFormatter } from "../utils/formatter";
 
-export default function Cart({ close }) {
-  const { state } = useContext(StoreContext);
+export default function Cart({ close, open }) {
+  const { state, dispatch } = useContext(StoreContext);
 
   const total = state.mealItems.reduce(
     (result, item) => result + item.price * item.quantity,
     0,
   );
+
+  function checkout() {
+    dispatch({ type: "PROGRESS_MODAL" });
+  }
 
   return (
     <div className="cart">
@@ -27,7 +31,7 @@ export default function Cart({ close }) {
         <Button onClick={close} textButton>
           Close
         </Button>
-        <Button onClick={close}>Checkout</Button>
+        <Button onClick={checkout}>Checkout</Button>
       </div>
     </div>
   );

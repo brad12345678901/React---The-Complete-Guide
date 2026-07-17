@@ -20,7 +20,7 @@ export function StoreProvider({ children }) {
       payload: { id, name, price, description },
     });
   }
-
+  
   return (
     <StoreContext.Provider
       value={{ state, dispatch, addMealItem, removeMealItem }}
