@@ -1,6 +1,7 @@
-export default function Button({ children, ...props }) {
+export default function Button({ children, textButton, ...props }) {
+  const className = !textButton ? "button" : "text-button";
   return (
-    <button className="button" {...props}>
+    <button className={className} {...props}>
       {children}
     </button>
   );

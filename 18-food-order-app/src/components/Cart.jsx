@@ -16,7 +16,8 @@ export default function Cart({ close }) {
         )}
       </ul>
       <div className="modal-actions">
-        <Button onClick={close}>Close</Button>
+        <Button onClick={close} textButton>Close</Button>
+        <Button onClick={close}>Checkout</Button>
       </div>
     </div>
   );
