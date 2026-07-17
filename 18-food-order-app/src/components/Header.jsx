@@ -4,10 +4,11 @@ import logo from "../assets/logo.jpg";
 import Modal from "./Modal";
 import Button from "./Button";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 
 export default function Header() {
-  const modalCartRef = useRef();
-  const { state } = useContext(StoreContext);
+  const modalRef = useRef();
+  const { state, dispatch } = useContext(StoreContext);
 
   const itemsCount =
     state.mealItems.length !== 0
@@ -17,23 +18,37 @@ export default function Header() {
         )
       : 0;
 
-  function openCart() {
-    modalCartRef.current.showModal();
+  function openModal() {
+    modalRef.current.showModal();
   }
 
-  function closeCart() {
-    modalCartRef.current.close();
+  function closeModal() {
+    modalRef.current.close();
   }
+
+  function resetModalProgression() {
+    dispatch({ type: "RESET_MODAL_PROGRESS" });
+  }
+
   return (
     <>
-      <Modal ref={modalCartRef}>
-        <Cart close={closeCart} />
+      <Modal
+        key={`CartModal:${state.modalCartProgression}`}
+        ref={modalRef}
+        open={openModal}
+        progress={state.modalCartProgression}
+        resetAction={resetModalProgression}
+      >
+        {state.modalCartProgression === 0 && (
+          <Cart close={closeModal} open={openModal} />
+        )}
+        {state.modalCartProgression === 1 && <Checkout close={closeModal} />}
       </Modal>
       <div id="main-header">
         <h1 id="title">
           <img src={logo}></img>Food App
         </h1>
-        <button className="text-button" onClick={openCart}>
+        <button className="text-button" onClick={openModal}>
           Cart ({itemsCount})
         </button>
       </div>
