@@ -3,12 +3,9 @@ import { usdFormatter } from "../utils/formatter";
 import { StoreContext } from "../store/storeContext";
 
 export default function MealItem({ item }) {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state, dispatch, addMealItem } = useContext(StoreContext);
 
-  function addItem(item) {
-    const { id, name, price } = item;
-    dispatch({ type: "ADD_MEAL_ITEM", payload: { id, name, price } });
-  }
+  
   return (
     <div className="meal-item">
       <article>
@@ -19,7 +16,7 @@ export default function MealItem({ item }) {
           <div className="meal-item-description">{item.description}</div>
         </div>
         <div className="meal-item-actions">
-          <button className="button" onClick={() => addItem(item)}>
+          <button className="button" onClick={() => addMealItem(item)}>
             Add to Cart
           </button>
         </div>
