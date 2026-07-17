@@ -20,7 +20,7 @@ export function cartReducer(state, action) {
         return {
           ...state,
           mealItems: state.mealItems.map((item, index) =>
-            index === existingMeal
+            item.id === action.payload.id
               ? { ...item, quantity: item.quantity + 1 }
               : item,
           ),
@@ -28,23 +28,28 @@ export function cartReducer(state, action) {
       }
     }
     case "REMOVE_MEAL_ITEM": {
-      const existingMeal = state.mealItems.findIndex(
+      const existingMeal = state.mealItems.find(
         (item) => item.id === action.payload.id,
       );
-      if (existingMeal === -1) {
-        return {
-          ...state,
-          mealItems: [...state.mealItems, { ...action.payload, quantity: 1 }],
-        };
-      } else {
-        return {
-          ...state,
-          mealItems: state.mealItems.map((item, index) =>
-            index === existingMeal
-              ? { ...item, quantity: item.quantity + 1 }
-              : item,
-          ),
-        };
+
+      if (existingMeal) {
+        if (existingMeal.quantity === 1) {
+          return {
+            ...state,
+            mealItems: state.mealItems.filter(
+              (item) => item.id !== action.payload.id,
+            ),
+          };
+        } else {
+          return {
+            ...state,
+            mealItems: state.mealItems.map((item, index) =>
+              item.id === action.payload.id
+                ? { ...item, quantity: item.quantity - 1 }
+                : item,
+            ),
+          };
+        }
       }
     }
     default:
