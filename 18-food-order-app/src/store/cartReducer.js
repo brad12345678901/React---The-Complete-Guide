@@ -11,9 +11,6 @@ export function cartReducer(state, action) {
       const existingMeal = state.mealItems.findIndex(
         (item) => item.id === action.payload.id,
       );
-
-      console.log(state.mealItems)
-
       if (existingMeal === -1) {
         return {
           ...state,
