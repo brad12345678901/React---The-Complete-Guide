@@ -6,3 +6,8 @@ export async function getMeals() {
   }
   return data;
 }
+
+export async function addMealOrder(formData){
+  //implement add order meal here
+  //function to checkout
+}
