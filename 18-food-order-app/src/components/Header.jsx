@@ -6,7 +6,7 @@ import Button from "./Button";
 import Cart from "./Cart";
 
 export default function Header() {
-  const modalRef = useRef();
+  const modalCartRef = useRef();
   const { state } = useContext(StoreContext);
 
   const itemsCount =
@@ -18,15 +18,15 @@ export default function Header() {
       : 0;
 
   function openCart() {
-    modalRef.current.showModal();
+    modalCartRef.current.showModal();
   }
 
   function closeCart() {
-    modalRef.current.close();
+    modalCartRef.current.close();
   }
   return (
     <>
-      <Modal ref={modalRef}>
+      <Modal ref={modalCartRef}>
         <Cart close={closeCart} />
       </Modal>
       <div id="main-header">
