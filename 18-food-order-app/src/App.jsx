@@ -2,10 +2,11 @@ import { useEffect, useState, use, useRef } from "react";
 import logo from "./assets/logo.jpg";
 import CartModal from "./components/CartModal";
 import Meal from "./components/Meal";
+import { StoreContext } from "./store/storeContext";
 
 function App() {
   const modalRef = useRef(null);
-
+  
   function openCart() {
     modalRef.current.showModal();
   }
@@ -14,7 +15,7 @@ function App() {
     <>
       <CartModal ref={modalRef} />
       <div id="main-header">
-        <h1 id="title">
+        <h1 id="title">         
           <img src={logo}></img>Food App
         </h1>
         <button className="text-button" onClick={openCart}>
