@@ -7,7 +7,16 @@ export async function getMeals() {
   return data;
 }
 
-export async function addMealOrder(formData){
+export async function addMealOrder(formData) {
   //implement add order meal here
   //function to checkout
+}
+
+export async function testFunction() {
+  const res = await fetch("http://localhost:3000/test");
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error("Failed to test!");
+  }
+  return data;
 }

@@ -21,6 +21,11 @@ app.get("/meals", async (req, res) => {
   res.json(JSON.parse(meals));
 });
 
+app.get("/test", async (req, res) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  res.json({ test: 1 });
+});
+
 app.post("/orders", async (req, res) => {
   const orderData = req.body.order;
 
@@ -69,4 +74,6 @@ app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
-app.listen(3000, "localhost", () => {console.log('Listening to http://localhost:3000/')});
+app.listen(3000, "localhost", () => {
+  console.log("Listening to http://localhost:3000/");
+});
