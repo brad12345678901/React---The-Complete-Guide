@@ -39,10 +39,12 @@ export default function Header() {
         progress={state.modalCartProgression}
         resetAction={resetModalProgression}
       >
-        {state.modalCartProgression === 0 && (
-          <Cart close={closeModal} open={openModal} />
-        )}
-        {state.modalCartProgression === 1 && <Checkout close={closeModal} />}
+        {(controller) => {
+          if (state.modalCartProgression === 0)
+            return <Cart close={closeModal} open={openModal} />;
+          if (state.modalCartProgression === 1)
+            return <Checkout close={closeModal} controller={controller} />;
+        }}
       </Modal>
       <div id="main-header">
         <h1 id="title">

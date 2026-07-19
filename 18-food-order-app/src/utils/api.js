@@ -12,11 +12,17 @@ export async function addMealOrder(formData) {
   //function to checkout
 }
 
-export async function testFunction() {
-  const res = await fetch("http://localhost:3000/test");
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error("Failed to test!");
+export async function testFunction(signal) {
+  try {
+    const res = await fetch("http://localhost:3000/test", {
+      signal: signal,
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error("Failed to test!");
+    }
+    return data;
+  } catch (err) {
+    return { error: err.message || "Something gone wrong" };
   }
-  return data;
 }

@@ -1,13 +1,20 @@
-import { use, useContext, useEffect } from "react";
+import { use, useContext, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { StoreContext } from "../store/storeContext";
 import Button from "./Button";
 
 export default function Modal({ progress, resetAction, children, ref }) {
   const { dispatch } = useContext(StoreContext);
+  const controller = useRef(null);
+
+  if (progress === 1) {
+    console.log("CREATE ABORTCONTROLLER");
+    controller.current = new AbortController();
+  }
 
   function closeHandler() {
     if (progress) {
+      controller.current.abort();
       resetAction();
     }
   }
@@ -18,7 +25,7 @@ export default function Modal({ progress, resetAction, children, ref }) {
 
   return createPortal(
     <dialog ref={ref} className="modal" onClose={closeHandler}>
-      {children}
+      {children(controller)}
     </dialog>,
     document.getElementById("modal"),
   );

@@ -22,7 +22,7 @@ app.get("/meals", async (req, res) => {
 });
 
 app.get("/test", async (req, res) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   res.json({ test: 1 });
 });
 
