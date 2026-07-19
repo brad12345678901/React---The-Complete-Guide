@@ -13,7 +13,8 @@ export default function Cart({ close, open }) {
   );
 
   function checkout() {
-    dispatch({ type: "PROGRESS_MODAL" });
+    if (state.mealItems.length !== 0) dispatch({ type: "PROGRESS_MODAL" });
+    else alert("You don't have meal items to checkout");
   }
 
   return (
@@ -26,7 +27,7 @@ export default function Cart({ close, open }) {
           state.mealItems.map((item) => <CartItem key={item.id} item={item} />)
         )}
       </ul>
-      <p className="cart-total">{usdFormatter.format(total)}</p>
+      <p className="cart-total">Total: {usdFormatter.format(total)}</p>
       <div className="modal-actions">
         <Button onClick={close} textButton>
           Close
