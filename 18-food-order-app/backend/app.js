@@ -22,13 +22,12 @@ app.get("/meals", async (req, res) => {
 });
 
 app.get("/test", async (req, res) => {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   res.json({ test: 1 });
 });
 
 app.post("/orders", async (req, res) => {
   const orderData = req.body.order;
-
   if (
     orderData === null ||
     orderData.items === null ||
