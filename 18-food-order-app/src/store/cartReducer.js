@@ -53,6 +53,13 @@ export function cartReducer(state, action) {
       }
     }
 
+    case "RESET_MEAL_ITEMS": {
+      return {
+        ...state,
+        mealItems: [],
+      };
+    }
+
     case "PROGRESS_MODAL": {
       return {
         ...state,

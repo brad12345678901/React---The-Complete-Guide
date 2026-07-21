@@ -4,7 +4,7 @@ import { StoreContext } from "../store/storeContext";
 import Input from "./Input";
 import { usdFormatter } from "../utils/formatter";
 import { useActionState } from "react";
-import { testFunction } from "../utils/api";
+import { addMealOrder, testFunction } from "../utils/api";
 import { hasAlphabets, isEmail, isEmpty } from "../utils/validator";
 
 export default function Checkout({ close, controller }) {
@@ -43,8 +43,6 @@ export default function Checkout({ close, controller }) {
       errors.postalCode = "It must be number only / Not empty";
     }
 
-    console.log(errors);
-
     if (Object.keys(errors).length) {
       return {
         defaultValues: {
@@ -58,9 +56,28 @@ export default function Checkout({ close, controller }) {
       };
     }
 
-    const result = await testFunction(controller.current.signal);
+    const orderData = {
+      customer: {
+        name: fullName,
+        email: email,
+        street: street,
+        ["postal-code"]: postalCode,
+        city: city,
+      },
+      items: state.mealItems,
+    };
 
-    if (result.success) dispatch({ type: "PROGRESS_MODAL" });
+    const result = await addMealOrder(controller.current.signal, orderData);
+
+    if (result.success) {
+      dispatch({ type: "PROGRESS_MODAL" });
+      dispatch({ type: "RESET_MEAL_ITEMS" });
+    }
+
+    return {
+      defaultValues: {},
+      errors: null,
+    };
   }
 
   const [formState, formAction] = useActionState(handleAction, {
