@@ -181,6 +181,7 @@ h1 {
 .control {
   margin: 0.5rem 0;
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
@@ -283,6 +284,30 @@ h1 {
 
 .error p {
   margin: 0;
+}
+
+.error-paragraph {
+  display: block;
+  position: absolute;
+  font-size: 10px;
+  left: 53%;
+  top: 46%;
+  color: red;
+  background-color: rgba(243, 203, 203, 0.205);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.control-row .error-paragraph {
+  display: block;
+  position: absolute;
+  font-size: 10px;
+  top: 88%;
+  left: 0;
+  color: red;
+  background-color: rgba(243, 203, 203, 0.205);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @keyframes fade-slide-up {
