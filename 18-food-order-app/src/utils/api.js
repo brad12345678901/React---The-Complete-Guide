@@ -21,8 +21,8 @@ export async function testFunction(signal) {
     if (!res.ok) {
       throw new Error("Failed to test!");
     }
-    return data;
+    return { data: data, success: true };
   } catch (err) {
-    return { error: err.message || "Something gone wrong" };
+    return { error: err.message || "Something gone wrong", success: false };
   }
 }

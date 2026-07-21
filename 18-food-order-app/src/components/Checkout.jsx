@@ -21,7 +21,10 @@ export default function Checkout({ close, controller }) {
     const postalCode = formData.get("postal-code");
     const city = formData.get("city");
 
-    await testFunction(controller.current.signal);
+    const result = await testFunction(controller.current.signal);
+
+    if (result.success)
+      dispatch({ type: "PROGRESS_MODAL" });
   }
 
   const [formState, formAction] = useActionState(handleAction, {

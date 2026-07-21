@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import Button from "./Button";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+import Success from "./Success";
 
 export default function Header() {
   const modalRef = useRef();
@@ -40,10 +41,14 @@ export default function Header() {
         resetAction={resetModalProgression}
       >
         {(controller) => {
-          if (state.modalCartProgression === 0)
-            return <Cart close={closeModal} open={openModal} />;
-          if (state.modalCartProgression === 1)
-            return <Checkout close={closeModal} controller={controller} />;
+          switch (state.modalCartProgression) {
+            case 0:
+              return <Cart close={closeModal} open={openModal} />;
+            case 1:
+              return <Checkout close={closeModal} controller={controller} />;
+            case 2:
+              return <Success close={closeModal} />;
+          }
         }}
       </Modal>
       <div id="main-header">

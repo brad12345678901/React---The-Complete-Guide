@@ -8,13 +8,12 @@ export default function Modal({ progress, resetAction, children, ref }) {
   const controller = useRef(null);
 
   if (progress === 1) {
-    console.log("CREATE ABORTCONTROLLER");
     controller.current = new AbortController();
   }
 
   function closeHandler() {
     if (progress) {
-      controller.current.abort();
+      if (controller.current != null) controller.current.abort();
       resetAction();
     }
   }
